@@ -7,5 +7,15 @@ body {
 #cookie {
   font-size: 48px;
   padding: 20px;
+  margin-bottom: 10px;
+}
+
+#store {
+  margin-top: 30px;
+}
+
+button {
+  font-size: 18px;
+  margin: 5px;
 }
 

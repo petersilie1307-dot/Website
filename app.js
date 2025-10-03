@@ -204,3 +204,51 @@ setInterval(() => {
   countSpan.textContent = count;
 }, 1000);
 
+// Touch-Zoom auf dem Cookie verhindern
+cookieImg.addEventListener('touchstart', function(e) {
+  if (e.touches.length > 1) {
+    e.preventDefault();
+  }
+}, { passive: false });
+
+cookieImg.addEventListener('dblclick', function(e) {
+  e.preventDefault();
+});
+
+// Cursor-Animation
+function spawnCursorAnimation(x, y) {
+  const cursor = document.createElement('div');
+  cursor.textContent = '🖱️';
+  cursor.style.position = 'fixed';
+  cursor.style.left = x + 'px';
+  cursor.style.top = y + 'px';
+  cursor.style.fontSize = '2em';
+  cursor.style.pointerEvents = 'none';
+  cursor.style.transition = 'transform 0.8s cubic-bezier(.4,2,.3,1), opacity 0.8s';
+  cursor.style.transform = 'translateY(0)';
+  cursor.style.opacity = '1';
+  cursor.style.zIndex = '1000';
+  document.body.appendChild(cursor);
+
+  setTimeout(() => {
+    cursor.style.transform = 'translateY(-80px) scale(0.7)';
+    cursor.style.opacity = '0';
+  }, 10);
+
+  setTimeout(() => {
+    cursor.remove();
+  }, 900);
+}
+
+cookieImg.addEventListener('click', (e) => {
+  count += perClick;
+  updateUI();
+  animateCookie();
+
+  // Cursor-Animation erzeugen
+  let rect = cookieImg.getBoundingClientRect();
+  let x = rect.left + rect.width / 2;
+  let y = rect.top + rect.height / 2;
+  spawnCursorAnimation(x, y);
+});
+

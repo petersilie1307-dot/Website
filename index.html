@@ -6,14 +6,20 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Cookie Clicker</h1>
-  <div id="game">
-    <button id="cookie">🍪</button>
-    <p>Cookies: <span id="count">0</span></p>
-    <p>Cookies pro Klick: <span id="perClick">1</span></p>
+  <div id="background"></div>
+  <div id="container">
+    <div id="cookie-area">
+      <div id="cookie-shadow"></div>
+      <img id="cookie" src="https://upload.wikimedia.org/wikipedia/commons/6/69/Chocolate_Chip_Cookie.png" alt="Cookie">
+      <div id="cookie-count">
+        <span id="count">0</span> cookie<br>
+        per second: <span id="perSecond">0</span>
+      </div>
+    </div>
     <div id="store">
       <h2>Store</h2>
       <button id="cursor">Cursor (+1 pro Klick) - Kosten: <span id="cursorCost">10</span></button>
+      <!-- Weitere Upgrades können hier ergänzt werden -->
     </div>
   </div>
   <script src="app.js"></script>

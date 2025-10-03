@@ -68,26 +68,63 @@ body, html {
   padding: 20px;
   color: #fff;
   box-shadow: 0 0 20px #0004;
+  overflow-y: auto;
+  max-height: 70vh;
 }
-#store h2 {
-  margin-top: 0;
-  font-size: 2em;
-  text-shadow: 1px 1px 6px #000a;
+.store-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
-button {
+.store-item {
+  display: flex;
+  align-items: center;
+  background: rgba(0,0,0,0.15);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 8px #0002;
+  position: relative;
+}
+.store-item.disabled {
+  opacity: 0.5;
+}
+.store-icon {
+  width: 48px;
+  height: 48px;
+  margin-right: 16px;
+  border-radius: 8px;
+  background: #fff;
+}
+.store-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.store-title {
   font-size: 1.2em;
-  margin: 10px 0;
-  padding: 10px 20px;
+  font-weight: bold;
+}
+.store-cost {
+  font-size: 1em;
+  color: #ffd700;
+}
+.store-desc {
+  font-size: 0.9em;
+  color: #eee;
+}
+.store-buy {
+  font-size: 1em;
+  padding: 8px 16px;
   border-radius: 8px;
   border: none;
   background: #3a6ea5;
   color: #fff;
   cursor: pointer;
-  box-shadow: 0 2px 8px #0003;
-  transition: background 0.2s;
+  margin-left: 12px;
 }
-button:hover {
-  background: #2a4d6b;
+.store-buy:disabled {
+  background: #888;
+  cursor: not-allowed;
 }
 @media (max-width: 900px) {
   #container {
@@ -114,9 +151,18 @@ button:hover {
     padding: 8px 10px;
   }
   #store {
+    width: 98vw;
+    max-height: 40vh;
     padding: 10px;
-    max-height: 50vh;
-    overflow-y: auto;
+  }
+  .store-icon {
+    width: 36px;
+    height: 36px;
+    margin-right: 8px;
+  }
+  .store-buy {
+    padding: 6px 10px;
+    font-size: 0.9em;
   }
 }
 

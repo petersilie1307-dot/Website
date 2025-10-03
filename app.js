@@ -42,6 +42,9 @@ const alchemyCostSpan = document.getElementById('alchemyCost');
 const portalBtn = document.getElementById('portal');
 const portalCostSpan = document.getElementById('portalCost');
 const saveBtn = document.getElementById('saveBtn');
+const bakeryModal = document.getElementById('bakeryModal');
+const bakeryNameInput = document.getElementById('bakeryNameInput');
+const bakeryNameBtn = document.getElementById('bakeryNameBtn');
 
 // Initial UI
 function updateUI() {
@@ -259,4 +262,24 @@ function spawnCursorAnimation(x, y, value) {
     cursor.remove();
   }, 900);
 }
+
+function setBakeryName(name) {
+  localStorage.setItem('bakeryName', name);
+  document.getElementById('bakeryTitle').textContent = name + "'s bakery";
+}
+
+if (!localStorage.getItem('bakeryName')) {
+  bakeryModal.style.display = 'flex';
+} else {
+  setBakeryName(localStorage.getItem('bakeryName'));
+  bakeryModal.style.display = 'none';
+}
+
+bakeryNameBtn.addEventListener('click', () => {
+  const name = bakeryNameInput.value.trim();
+  if (name.length > 0) {
+    setBakeryName(name);
+    bakeryModal.style.display = 'none';
+  }
+});
 

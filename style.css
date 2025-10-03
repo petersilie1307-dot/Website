@@ -44,7 +44,7 @@ body, html {
   border-radius: 50%;
   box-shadow: 0 0 40px #fff6;
   cursor: pointer;
-  transition: transform 0.1s;
+  transition: transform 0.1s, box-shadow 0.1s;
   z-index: 1;
 }
 #cookie.clicked {

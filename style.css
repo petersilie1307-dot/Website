@@ -95,7 +95,19 @@ button:hover {
     align-items: center;
   }
   #cookie-area, #store {
-    width: 90vw;
+    width: 98vw;
+  }
+  #cookie {
+    width: 180px;
+    height: 180px;
+  }
+  button {
+    font-size: 1em;
+    padding: 12px 8px;
+  }
+  #cookie-count {
+    font-size: 1.2em;
+    padding: 8px 10px;
   }
 }
 

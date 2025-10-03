@@ -41,6 +41,7 @@ const alchemyBtn = document.getElementById('alchemy');
 const alchemyCostSpan = document.getElementById('alchemyCost');
 const portalBtn = document.getElementById('portal');
 const portalCostSpan = document.getElementById('portalCost');
+const saveBtn = document.getElementById('saveBtn');
 
 // Initial UI
 function updateUI() {
@@ -143,6 +144,51 @@ portalBtn.addEventListener('click', () => {
     updateUI();
   }
 });
+
+// Save function
+function saveGame() {
+  const saveData = {
+    count,
+    perClick,
+    perSecond,
+    cursorCost,
+    grandmaCost,
+    farmCost,
+    factoryCost,
+    mineCost,
+    shipmentCost,
+    alchemyCost,
+    portalCost
+  };
+  localStorage.setItem('cookieClickerSave', JSON.stringify(saveData));
+  saveBtn.textContent = 'Gespeichert!';
+  setTimeout(() => saveBtn.textContent = 'Speichern', 1500);
+}
+
+// Load function
+function loadGame() {
+  const saveData = JSON.parse(localStorage.getItem('cookieClickerSave'));
+  if (saveData) {
+    count = saveData.count;
+    perClick = saveData.perClick;
+    perSecond = saveData.perSecond;
+    cursorCost = saveData.cursorCost;
+    grandmaCost = saveData.grandmaCost;
+    farmCost = saveData.farmCost;
+    factoryCost = saveData.factoryCost;
+    mineCost = saveData.mineCost;
+    shipmentCost = saveData.shipmentCost;
+    alchemyCost = saveData.alchemyCost;
+    portalCost = saveData.portalCost;
+    updateUI();
+  }
+}
+
+// Beim Laden der Seite Spielstand laden
+loadGame();
+
+// Speichern-Button
+saveBtn.addEventListener('click', saveGame);
 
 // Animation beim Klick
 function animateCookie() {

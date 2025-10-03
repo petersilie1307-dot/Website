@@ -14,7 +14,7 @@ body, html {
 }
 #container {
   display: grid;
-  grid-template-columns: 33vw 1fr 33vw;
+  grid-template-columns: 28vw 1fr 28vw;
   gap: 0;
   align-items: start;
   height: 100vh;
@@ -23,7 +23,7 @@ body, html {
   z-index: 1;
 }
 #cookie-area {
-  width: 33vw;
+  width: 28vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,17 +33,13 @@ body, html {
 
 /* Right sidebar that contains bakery title and store */
 #sidebar {
-  width: 33vw;
+  width: 28vw;
   margin-top: 40px;
   padding-right: 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
-
-.store-buy {
-  font-size: 1em;
-  padding: 8px 16px;
 #bakeryTitle {
   color: #fff;
   text-shadow: 2px 2px 8px #000a;
@@ -51,8 +47,8 @@ body, html {
   margin-top: 20px;
 }
 #cookie-shadow {
-  width: 260px;
-  height: 260px;
+  width: 200px;
+  height: 200px;
   background: radial-gradient(ellipse at center, #00000033 0%, #00000000 80%);
   position: absolute;
   top: 120px;
@@ -61,8 +57,8 @@ body, html {
   z-index: 0;
 }
 #cookie {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   box-shadow: 0 0 40px #fff6;
   cursor: pointer;
@@ -75,7 +71,7 @@ body, html {
 }
 #cookie-count {
   margin-top: 20px;
-  font-size: 2em;
+  font-size: 1.6em;
   color: #fff;
   text-shadow: 2px 2px 8px #000a;
   background: rgba(0,0,0,0.2);
@@ -83,16 +79,12 @@ body, html {
   padding: 10px 20px;
 }
 #store {
-  width: 320px;
+  width: 280px;
   margin-top: 12px;
   background: rgba(255,255,255,0.08);
   border-radius: 12px;
-  padding: 20px;
+  padding: 16px;
   color: #fff;
-  button, .store-buy {
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    touch-action: manipulation;
-  }
   box-shadow: 0 0 20px #0004;
   overflow-y: auto;
   max-height: 70vh;
@@ -115,10 +107,10 @@ body, html {
   opacity: 0.5;
 }
 .store-icon {
-  width: 48px;
-  height: 48px;
-  margin-right: 16px;
-  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+  border-radius: 6px;
   background: #fff;
 }
 .store-info {
@@ -127,20 +119,20 @@ body, html {
   flex-direction: column;
 }
 .store-title {
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: bold;
 }
 .store-cost {
-  font-size: 1em;
+  font-size: 0.95em;
   color: #ffd700;
 }
 .store-desc {
-  font-size: 0.9em;
+  font-size: 0.85em;
   color: #eee;
 }
 .store-buy {
-  font-size: 1em;
-  padding: 8px 16px;
+  font-size: 0.95em;
+  padding: 6px 12px;
   border-radius: 8px;
   border: none;
   background: #3a6ea5;
@@ -195,6 +187,11 @@ body, html {
   .store-buy {
     padding: 6px 10px;
     font-size: 0.9em;
+  }
+  /* make touch targets reliable */
+  button, .store-buy {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    touch-action: manipulation;
   }
 }
 

@@ -67,6 +67,7 @@ function updateUI() {
   if (shipmentCostSpan) shipmentCostSpan.textContent = shipmentCost;
   if (alchemyCostSpan) alchemyCostSpan.textContent = alchemyCost;
   if (portalCostSpan) portalCostSpan.textContent = portalCost;
+  refreshStoreUI();
 }
 updateUI();
 
@@ -193,6 +194,33 @@ function saveGame() {
   localStorage.setItem('cookieClickerSave', JSON.stringify(saveData));
   saveBtn.textContent = 'Gespeichert!';
   setTimeout(() => saveBtn.textContent = 'Speichern', 1500);
+}
+
+// Update store item enabled/disabled state
+function refreshStoreUI() {
+  const items = [
+    { btn: cursorBtn, cost: cursorCost, itemId: 'cursorItem' },
+    { btn: grandmaBtn, cost: grandmaCost, itemId: 'grandmaItem' },
+    { btn: farmBtn, cost: farmCost, itemId: 'farmItem' },
+    { btn: factoryBtn, cost: factoryCost, itemId: 'factoryItem' },
+    { btn: mineBtn, cost: mineCost, itemId: 'mineItem' },
+    { btn: shipmentBtn, cost: shipmentCost, itemId: 'shipmentItem' },
+    { btn: alchemyBtn, cost: alchemyCost, itemId: 'alchemyItem' },
+    { btn: portalBtn, cost: portalCost, itemId: 'portalItem' }
+  ];
+
+  items.forEach(({btn, cost, itemId}) => {
+    const el = document.getElementById(itemId);
+    if (btn) {
+      if (count >= cost) {
+        btn.disabled = false;
+        if (el) el.classList.remove('disabled');
+      } else {
+        btn.disabled = true;
+        if (el) el.classList.add('disabled');
+      }
+    }
+  });
 }
 
 // Load function

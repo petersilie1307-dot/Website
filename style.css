@@ -12,9 +12,10 @@ body, html {
   z-index: 0;
 }
 #container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 33vw 1fr 33vw;
+  gap: 0;
+  align-items: start;
   height: 100vh;
   width: 100vw;
   position: relative;
@@ -27,6 +28,23 @@ body, html {
   align-items: center;
   margin-top: 40px;
   position: relative;
+}
+
+/* Right sidebar that contains bakery title and store */
+#sidebar {
+  width: 33vw;
+  margin-top: 40px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#bakeryTitle {
+  color: #fff;
+  text-shadow: 2px 2px 8px #000a;
+  margin-right: 24px;
+  margin-top: 20px;
 }
 #cookie-shadow {
   width: 260px;
@@ -61,8 +79,8 @@ body, html {
   padding: 10px 20px;
 }
 #store {
-  width: 33vw;
-  margin-top: 40px;
+  width: 320px;
+  margin-top: 12px;
   background: rgba(255,255,255,0.08);
   border-radius: 12px;
   padding: 20px;
@@ -128,6 +146,7 @@ body, html {
 }
 @media (max-width: 900px) {
   #container {
+    display: flex;
     flex-direction: column;
     align-items: center;
     height: auto;

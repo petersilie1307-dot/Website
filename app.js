@@ -22,7 +22,7 @@ cursorBtn.addEventListener('click', () => {
     countSpan.textContent = count;
     cursorCostSpan.textContent = cursorCost;
   } else {
-    alert('Nigga');
+   window.open("https://www.youtube.com/embed/xvFZjo5PgG0?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0", "_blank")}
   }
 });
 

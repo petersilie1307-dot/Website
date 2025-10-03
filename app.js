@@ -225,21 +225,24 @@ cookieImg.addEventListener('click', (e) => {
   updateUI();
   animateCookie();
 
-  // Cursor-Animation erzeugen
+  // Animation mit Wert von perClick
   let rect = cookieImg.getBoundingClientRect();
   let x = rect.left + rect.width / 2;
   let y = rect.top + rect.height / 2;
-  spawnCursorAnimation(x, y);
+  spawnCursorAnimation(x, y, perClick);
 });
 
 // Cursor-Animation
-function spawnCursorAnimation(x, y) {
+function spawnCursorAnimation(x, y, value) {
   const cursor = document.createElement('div');
-  cursor.textContent = '🖱️';
+  cursor.textContent = '+' + value;
   cursor.style.position = 'fixed';
   cursor.style.left = x + 'px';
   cursor.style.top = y + 'px';
   cursor.style.fontSize = '2em';
+  cursor.style.fontWeight = 'bold';
+  cursor.style.color = '#fff';
+  cursor.style.textShadow = '2px 2px 8px #000a';
   cursor.style.pointerEvents = 'none';
   cursor.style.transition = 'transform 0.8s cubic-bezier(.4,2,.3,1), opacity 0.8s';
   cursor.style.transform = 'translateY(0)';

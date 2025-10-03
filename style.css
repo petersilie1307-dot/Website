@@ -115,6 +115,8 @@ button:hover {
   }
   #store {
     padding: 10px;
+    max-height: 50vh;
+    overflow-y: auto;
   }
 }
 

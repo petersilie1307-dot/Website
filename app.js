@@ -45,6 +45,7 @@ const saveBtn = document.getElementById('saveBtn');
 const bakeryModal = document.getElementById('bakeryModal');
 const bakeryNameInput = document.getElementById('bakeryNameInput');
 const bakeryNameBtn = document.getElementById('bakeryNameBtn');
+const bakeryTitle = document.getElementById('bakeryTitle');
 
 // Initial UI
 function updateUI() {
@@ -265,7 +266,9 @@ function spawnCursorAnimation(x, y, value) {
 
 function setBakeryName(name) {
   localStorage.setItem('bakeryName', name);
-  document.getElementById('bakeryTitle').textContent = name + "'s bakery";
+  if (bakeryTitle) {
+    bakeryTitle.textContent = name + "'s bakery";
+  }
 }
 
 if (!localStorage.getItem('bakeryName')) {

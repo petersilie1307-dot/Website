@@ -47,107 +47,133 @@ const bakeryNameInput = document.getElementById('bakeryNameInput');
 const bakeryNameBtn = document.getElementById('bakeryNameBtn');
 const bakeryTitle = document.getElementById('bakeryTitle');
 
+// Debug: log which bakery elements exist (helps diagnose why confirm doesn't work)
+console.log('bakery elements:', {
+  bakeryModal: !!bakeryModal,
+  bakeryNameInput: !!bakeryNameInput,
+  bakeryNameBtn: !!bakeryNameBtn,
+  bakeryTitle: !!bakeryTitle
+});
+
 // Initial UI
 function updateUI() {
-  countSpan.textContent = count;
-  perSecondSpan.textContent = perSecond;
-  cursorCostSpan.textContent = cursorCost;
-  grandmaCostSpan.textContent = grandmaCost;
-  farmCostSpan.textContent = farmCost;
-  factoryCostSpan.textContent = factoryCost;
-  mineCostSpan.textContent = mineCost;
-  shipmentCostSpan.textContent = shipmentCost;
-  alchemyCostSpan.textContent = alchemyCost;
-  portalCostSpan.textContent = portalCost;
+  if (countSpan) countSpan.textContent = count;
+  if (perSecondSpan) perSecondSpan.textContent = perSecond;
+  if (cursorCostSpan) cursorCostSpan.textContent = cursorCost;
+  if (grandmaCostSpan) grandmaCostSpan.textContent = grandmaCost;
+  if (farmCostSpan) farmCostSpan.textContent = farmCost;
+  if (factoryCostSpan) factoryCostSpan.textContent = factoryCost;
+  if (mineCostSpan) mineCostSpan.textContent = mineCost;
+  if (shipmentCostSpan) shipmentCostSpan.textContent = shipmentCost;
+  if (alchemyCostSpan) alchemyCostSpan.textContent = alchemyCost;
+  if (portalCostSpan) portalCostSpan.textContent = portalCost;
 }
 updateUI();
 
 // Cookie click
-cookieImg.addEventListener('click', () => {
-  count += perClick;
-  updateUI();
-  animateCookie();
-});
+if (cookieImg) {
+  cookieImg.addEventListener('click', () => {
+    count += perClick;
+    updateUI();
+    animateCookie();
+  });
+}
 
 // Cursor upgrade
-cursorBtn.addEventListener('click', () => {
-  if (count >= cursorCost) {
-    count -= cursorCost;
-    perClick += 1;
-    cursorCost = Math.floor(cursorCost * 1.5);
-    updateUI();
-  }
-});
+if (cursorBtn) {
+  cursorBtn.addEventListener('click', () => {
+    if (count >= cursorCost) {
+      count -= cursorCost;
+      perClick += 1;
+      cursorCost = Math.floor(cursorCost * 1.5);
+      updateUI();
+    }
+  });
+}
 
 // Grandma upgrade
-grandmaBtn.addEventListener('click', () => {
-  if (count >= grandmaCost) {
-    count -= grandmaCost;
-    perSecond += grandmaValue;
-    grandmaCost = Math.floor(grandmaCost * 1.5);
-    updateUI();
-  }
-});
+if (grandmaBtn) {
+  grandmaBtn.addEventListener('click', () => {
+    if (count >= grandmaCost) {
+      count -= grandmaCost;
+      perSecond += grandmaValue;
+      grandmaCost = Math.floor(grandmaCost * 1.5);
+      updateUI();
+    }
+  });
+}
 
 // Farm upgrade
-farmBtn.addEventListener('click', () => {
-  if (count >= farmCost) {
-    count -= farmCost;
-    perSecond += farmValue;
-    farmCost = Math.floor(farmCost * 1.5);
-    updateUI();
-  }
-});
+if (farmBtn) {
+  farmBtn.addEventListener('click', () => {
+    if (count >= farmCost) {
+      count -= farmCost;
+      perSecond += farmValue;
+      farmCost = Math.floor(farmCost * 1.5);
+      updateUI();
+    }
+  });
+}
 
 // Factory upgrade
-factoryBtn.addEventListener('click', () => {
-  if (count >= factoryCost) {
-    count -= factoryCost;
-    perSecond += factoryValue;
-    factoryCost = Math.floor(factoryCost * 1.5);
-    updateUI();
-  }
-});
+if (factoryBtn) {
+  factoryBtn.addEventListener('click', () => {
+    if (count >= factoryCost) {
+      count -= factoryCost;
+      perSecond += factoryValue;
+      factoryCost = Math.floor(factoryCost * 1.5);
+      updateUI();
+    }
+  });
+}
 
 // Mine upgrade
-mineBtn.addEventListener('click', () => {
-  if (count >= mineCost) {
-    count -= mineCost;
-    perSecond += mineValue;
-    mineCost = Math.floor(mineCost * 1.5);
-    updateUI();
-  }
-});
+if (mineBtn) {
+  mineBtn.addEventListener('click', () => {
+    if (count >= mineCost) {
+      count -= mineCost;
+      perSecond += mineValue;
+      mineCost = Math.floor(mineCost * 1.5);
+      updateUI();
+    }
+  });
+}
 
 // Shipment upgrade
-shipmentBtn.addEventListener('click', () => {
-  if (count >= shipmentCost) {
-    count -= shipmentCost;
-    perSecond += shipmentValue;
-    shipmentCost = Math.floor(shipmentCost * 1.5);
-    updateUI();
-  }
-});
+if (shipmentBtn) {
+  shipmentBtn.addEventListener('click', () => {
+    if (count >= shipmentCost) {
+      count -= shipmentCost;
+      perSecond += shipmentValue;
+      shipmentCost = Math.floor(shipmentCost * 1.5);
+      updateUI();
+    }
+  });
+}
 
 // Alchemy lab upgrade
-alchemyBtn.addEventListener('click', () => {
-  if (count >= alchemyCost) {
-    count -= alchemyCost;
-    perSecond += alchemyValue;
-    alchemyCost = Math.floor(alchemyCost * 1.5);
-    updateUI();
-  }
-});
+if (alchemyBtn) {
+  alchemyBtn.addEventListener('click', () => {
+    if (count >= alchemyCost) {
+      count -= alchemyCost;
+      perSecond += alchemyValue;
+      alchemyCost = Math.floor(alchemyCost * 1.5);
+      updateUI();
+    }
+  });
+}
 
 // Portal upgrade
-portalBtn.addEventListener('click', () => {
-  if (count >= portalCost) {
-    count -= portalCost;
-    perSecond += portalValue;
-    portalCost = Math.floor(portalCost * 1.5);
-    updateUI();
-  }
-});
+if (portalBtn) {
+  portalBtn.addEventListener('click', () => {
+    if (count >= portalCost) {
+      count -= portalCost;
+      perSecond += portalValue;
+      portalCost = Math.floor(portalCost * 1.5);
+      updateUI();
+    }
+  });
+}
 
 // Save function
 function saveGame() {
@@ -192,7 +218,7 @@ function loadGame() {
 loadGame();
 
 // Speichern-Button
-saveBtn.addEventListener('click', saveGame);
+if (saveBtn) saveBtn.addEventListener('click', saveGame);
 
 // Animation beim Klick
 function animateCookie() {
@@ -222,19 +248,21 @@ function preventZoomOnTouch(element) {
 [
   cookieImg, cursorBtn, grandmaBtn, farmBtn, factoryBtn,
   mineBtn, shipmentBtn, alchemyBtn, portalBtn, saveBtn
-].forEach(preventZoomOnTouch);
+].filter(Boolean).forEach(preventZoomOnTouch);
 
-cookieImg.addEventListener('click', (e) => {
-  count += perClick;
-  updateUI();
-  animateCookie();
+if (cookieImg) {
+  cookieImg.addEventListener('click', (e) => {
+    count += perClick;
+    updateUI();
+    animateCookie();
 
-  // Animation mit Wert von perClick
-  let rect = cookieImg.getBoundingClientRect();
-  let x = rect.left + rect.width / 2;
-  let y = rect.top + rect.height / 2;
-  spawnCursorAnimation(x, y, perClick);
-});
+    // Animation mit Wert von perClick
+    let rect = cookieImg.getBoundingClientRect();
+    let x = rect.left + rect.width / 2;
+    let y = rect.top + rect.height / 2;
+    spawnCursorAnimation(x, y, perClick);
+  });
+}
 
 // Cursor-Animation
 function spawnCursorAnimation(x, y, value) {
@@ -272,17 +300,37 @@ function setBakeryName(name) {
 }
 
 if (!localStorage.getItem('bakeryName')) {
-  bakeryModal.style.display = 'flex';
+  if (bakeryModal) bakeryModal.style.display = 'flex';
 } else {
   setBakeryName(localStorage.getItem('bakeryName'));
-  bakeryModal.style.display = 'none';
+  if (bakeryModal) bakeryModal.style.display = 'none';
 }
 
-bakeryNameBtn.addEventListener('click', () => {
-  const name = bakeryNameInput.value.trim();
-  if (name.length > 0) {
-    setBakeryName(name);
-    bakeryModal.style.display = 'none';
-  }
-});
+if (bakeryNameBtn) {
+  console.log('Attaching click handler to bakeryNameBtn');
+  bakeryNameBtn.addEventListener('click', (ev) => {
+    console.log('bakeryNameBtn clicked', ev);
+    const name = (bakeryNameInput && bakeryNameInput.value) ? bakeryNameInput.value.trim() : '';
+    if (name.length > 0) {
+      setBakeryName(name);
+      if (bakeryModal) bakeryModal.style.display = 'none';
+      console.log('Bakery name set to:', name);
+    } else {
+      console.log('Bakery name empty, not setting');
+    }
+  });
+} else if (bakeryNameInput) {
+  // fallback: if button missing, allow Enter to confirm
+  console.log('bakeryNameBtn missing — attaching Enter handler to bakeryNameInput');
+  bakeryNameInput.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Enter') {
+      const name = bakeryNameInput.value.trim();
+      if (name.length > 0) {
+        setBakeryName(name);
+        if (bakeryModal) bakeryModal.style.display = 'none';
+        console.log('Bakery name set via Enter:', name);
+      }
+    }
+  });
+}
 

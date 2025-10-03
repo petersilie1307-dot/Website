@@ -22,7 +22,7 @@ cursorBtn.addEventListener('click', () => {
     perClickSpan.textContent = perClick;
     cursorCostSpan.textContent = cursorCost;
   } else {
-    alert('Nicht genug Cookies!');
+    alert('Nigga');
   }
 });
 

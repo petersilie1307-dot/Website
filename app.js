@@ -19,12 +19,17 @@ cursorBtn.addEventListener('click', () => {
     count -= cursorCost;
     perClick += 1;
     cursorCost = Math.floor(cursorCost * 1.5);
+
     countSpan.textContent = count;
     cursorCostSpan.textContent = cursorCost;
   } else {
-   window.open("https://www.youtube.com/embed/xvFZjo5PgG0?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0", "_blank")}
+    window.open(
+      "https://www.youtube.com/embed/xvFZjo5PgG0?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0",
+      "_blank"
+    );
   }
 });
+
 
 // Animation beim Klick
 function animateCookie() {

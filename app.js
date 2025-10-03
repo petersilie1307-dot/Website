@@ -205,14 +205,31 @@ setInterval(() => {
 }, 1000);
 
 // Touch-Zoom auf dem Cookie verhindern
-cookieImg.addEventListener('touchstart', function(e) {
-  if (e.touches.length > 1) {
+function preventZoomOnTouch(element) {
+  element.addEventListener('touchstart', function(e) {
+    if (e.touches.length > 1) e.preventDefault();
+  }, { passive: false });
+  element.addEventListener('dblclick', function(e) {
     e.preventDefault();
-  }
-}, { passive: false });
+  });
+}
 
-cookieImg.addEventListener('dblclick', function(e) {
-  e.preventDefault();
+// Für alle Buttons und Cookie anwenden
+[
+  cookieImg, cursorBtn, grandmaBtn, farmBtn, factoryBtn,
+  mineBtn, shipmentBtn, alchemyBtn, portalBtn, saveBtn
+].forEach(preventZoomOnTouch);
+
+cookieImg.addEventListener('click', (e) => {
+  count += perClick;
+  updateUI();
+  animateCookie();
+
+  // Cursor-Animation erzeugen
+  let rect = cookieImg.getBoundingClientRect();
+  let x = rect.left + rect.width / 2;
+  let y = rect.top + rect.height / 2;
+  spawnCursorAnimation(x, y);
 });
 
 // Cursor-Animation
@@ -239,16 +256,4 @@ function spawnCursorAnimation(x, y) {
     cursor.remove();
   }, 900);
 }
-
-cookieImg.addEventListener('click', (e) => {
-  count += perClick;
-  updateUI();
-  animateCookie();
-
-  // Cursor-Animation erzeugen
-  let rect = cookieImg.getBoundingClientRect();
-  let x = rect.left + rect.width / 2;
-  let y = rect.top + rect.height / 2;
-  spawnCursorAnimation(x, y);
-});
 

@@ -93,21 +93,28 @@ button:hover {
   #container {
     flex-direction: column;
     align-items: center;
+    height: auto;
   }
   #cookie-area, #store {
     width: 98vw;
+    margin-top: 20px;
+    padding: 0;
   }
   #cookie {
-    width: 180px;
-    height: 180px;
+    width: 140px;
+    height: 140px;
   }
   button {
     font-size: 1em;
-    padding: 12px 8px;
+    padding: 14px 8px;
+    margin: 8px 0;
   }
   #cookie-count {
-    font-size: 1.2em;
+    font-size: 1.1em;
     padding: 8px 10px;
+  }
+  #store {
+    padding: 10px;
   }
 }
 

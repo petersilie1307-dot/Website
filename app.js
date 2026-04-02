@@ -267,32 +267,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Cursor-Animation
+  // Cursor-Animation mit Glow-Effekt
   function spawnCursorAnimation(x, y, value) {
     const cursor = document.createElement('div');
     cursor.textContent = '+' + value;
     cursor.style.position = 'fixed';
     cursor.style.left = x + 'px';
     cursor.style.top = y + 'px';
-    cursor.style.fontSize = '2em';
+    cursor.style.fontSize = '2.2em';
     cursor.style.fontWeight = 'bold';
-    cursor.style.color = '#fff';
-    cursor.style.textShadow = '2px 2px 8px #000a';
+    cursor.style.color = '#ffd700';
+    cursor.style.textShadow = '0 0 10px #ffd700, 2px 2px 8px #000a';
     cursor.style.pointerEvents = 'none';
-    cursor.style.transition = 'transform 0.8s cubic-bezier(.4,2,.3,1), opacity 0.8s';
-    cursor.style.transform = 'translateY(0)';
+    cursor.style.transition = 'transform 0.9s cubic-bezier(.34,1.56,.64,1), opacity 0.9s';
+    cursor.style.transform = 'translateY(0) scale(1)';
     cursor.style.opacity = '1';
     cursor.style.zIndex = '1000';
+    cursor.style.fontFamily = 'Arial, sans-serif';
     document.body.appendChild(cursor);
 
     setTimeout(() => {
-      cursor.style.transform = 'translateY(-80px) scale(0.7)';
+      cursor.style.transform = 'translateY(-100px) scale(1.3)';
       cursor.style.opacity = '0';
     }, 10);
 
     setTimeout(() => {
       cursor.remove();
-    }, 900);
+    }, 1000);
   }
 
   function setBakeryName(name) {

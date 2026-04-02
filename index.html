@@ -7,12 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
-  <div id="bakeryModal" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#000a;display:none;align-items:center;justify-content:center;z-index:9999;">
-    <div style="background:#305c7c;padding:30px;border-radius:16px;box-shadow:0 0 20px #000a;text-align:center;">
-      <h2>Wie soll deine Bäckerei heißen?</h2>
-      <input id="bakeryNameInput" type="text" placeholder="Name eingeben" style="font-size:1.2em;padding:8px;border-radius:8px;border:none;">
+  <div id="bakeryModal" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(4px);">
+    <div style="background:linear-gradient(135deg, #305c7c, #4a7ba7);padding:40px;border-radius:20px;box-shadow:0 20px 60px #0008;text-align:center;border:2px solid rgba(255,215,0,0.3);">
+      <h2 style="color:#fff;font-size:1.8em;margin:0 0 20px 0;text-shadow:0 2px 12px #000a;letter-spacing:1px;">Wie soll deine Bäckerei heißen?</h2>
+      <input id="bakeryNameInput" type="text" placeholder="Name eingeben" style="font-size:1.2em;padding:12px 16px;border-radius:10px;border:2px solid rgba(255,215,0,0.3);width:280px;background:rgba(255,255,255,0.95);color:#333;font-weight:500;">
       <br><br>
-      <button id="bakeryNameBtn" style="font-size:1.2em;padding:10px 20px;border-radius:8px;background:#3a6ea5;color:#fff;border:none;cursor:pointer;">Bestätigen</button>
+      <button id="bakeryNameBtn" style="font-size:1.2em;padding:12px 32px;border-radius:10px;background:linear-gradient(135deg, #4a9eff, #357abd);color:#fff;border:none;cursor:pointer;font-weight:bold;box-shadow:0 4px 15px rgba(74, 158, 255, 0.4);transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(74, 158, 255, 0.6)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 15px rgba(74, 158, 255, 0.4)'">Bestätigen</button>
     </div>
   </div>
   <div id="background"></div>
@@ -21,10 +21,10 @@
       <div id="cookie-shadow"></div>
       <img id="cookie" src="https://miro.medium.com/v2/resize:fit:1200/0*zBoGSIuU8p7WxNiI.png" alt="Cookie">
       <div id="cookie-count">
-        <span id="count">0</span> cookie<br>
-        per second: <span id="perSecond">0</span>
+        <span id="count">0</span> cookies<br>
+        <span style="font-size:0.85em;font-weight:normal;">per second: <span id="perSecond" style="color:#ffdd00;">0</span></span>
       </div>
-      <button id="saveBtn">Speichern</button>
+      <button id="saveBtn">💾 Speichern</button>
     </div>
     <main id="main-area"></main>
     <div id="sidebar">
